@@ -1,6 +1,6 @@
 "use client";
 
-import { auth, provider } from "../lib/firebase";
+import { auth, provider } from "../../lib/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 export default function LoginPage() {
