@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* login.css is for styling the login page */
+
+.login-container {
+    @apply p-[40px] border-[5px] rounded-[20px] w-[400px] h-[450px] mx-auto my-[50px] bg-[#f0f0f0]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    padding: 40px; p-[40px]
+    border: '5px'; border-[5px]
+    borderRadius: 20; rounded-[20px]
+    width: 400; w-[400px]
+    height: 600; h-[600px]
+    margin: '50px auto'; mx-auto my-[50px]
+    backgroundColor: '#f0f0f0'; bg-[#f0f0f0] */
+}
+
+h1 {
+    @apply text-center text-[36px] mb-[20px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    textAlign: 'center'; text-center
+    fontSize: 36; text-[36px] 
+    marginBottom: 20; mb-[20px] */
+}
+
+input {
+    @apply block border-[2px] w-full p-[10px] mb-[20px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    display: 'block'; block 
+    border: '2px'; border-[2px]
+    width: '100%'; w-full
+    padding: 10; p-[10px]
+    marginBottom: 20; mb-[20px]
+    */
+}
+
+.button-container {
+    @apply flex flex-col items-center; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    display: 'flex'; flex
+    flexDirection: 'column'; flex-col
+    alignItems: 'center'; items-center
+    */
+}
+
+.login {
+    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[100px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+     marginTop: 20; mt-[20px]
+     padding: 10; p-[10px]
+     border: '5px'; border-[5px]
+     borderRadius: 20; rounded-[20px]
+     display: block; block 
+     height: 50; h-[50px]
+     width: 200; w-[200px] */
+}
+
+p {
+    @apply text-center mt-[20px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    textAlign: 'center'; text-center
+    marginTop: 20; mt-[20px] */
+}
+
+.login-With-Google {
+    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[200px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+     marginTop: 20; mt-[20px]
+     padding: 10; p-[10px]
+     border: '5px'; border-[5px]
+     borderRadius: 20; rounded-[20px]
+     display: block; block 
+     height: 50; h-[50px]
+     width: 200; w-[200px] */
+}
+
+
+    

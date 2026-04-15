@@ -2,6 +2,7 @@
 
 import { auth, provider } from "../../lib/firebase";
 import { signInWithPopup } from "firebase/auth";
+import './login.css';
 
 export default function LoginPage() {
 
@@ -23,31 +24,21 @@ export default function LoginPage() {
   };
 
   //Do not include html and body tags, as they are already defined in layout.tsx
+  //form tags will create this error
+  //ChatGPT claimed: "When you add a <form> tag, the browser changes behavior in a subtle but important way.""
   return (
-    <form style={{padding: 40,
-                  border: '5px solid black',
-                  borderRadius: 20,
-                  width: 400,
-                  height: 600,
-                  margin: '50px auto',
-                  backgroundColor: '#f0f0f0' }}>
-      <b><h1 style= {{
-                   textAlign: 'center', 
-                   fontSize: 36,
-                    }}>Login</h1></b>
-      <div>
-      <label htmlFor="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required style={{display: 'block'}}/>
-      {/* Add a login button  */}
-      <button onClick={loginWithGoogle} style={{marginTop: 20,
-                   padding: 10,
-                   border: '5px solid black',
-                  borderRadius: 20,
-                  width: 200,
-                  height: 50,}}>
-        Sign in with Google
-      </button>
+    <div className="login-container">
+      <h1>Login</h1>
+      <label><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email"/>
+      {/* How to add email link authentication */}
+      <div className="button-container">
+        <button className="login">Login</button>
+        <p>---or---</p>
+        <button className="login-With-Google" onClick={loginWithGoogle}>
+          Sign in with Google
+        </button>
       </div>
-    </form>  
+    </div>
   );
 }
