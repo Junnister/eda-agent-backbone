@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../lib/firebase";
-
-//import { getAuth, onAuthStateChanged } from "firebase/auth"; log out
+import './main.css';
 
 export default function Home() {
+  const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
   const router = useRouter();
@@ -16,7 +16,8 @@ export default function Home() {
   useEffect(() => {
     const authState = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setEmail(user.email); //maybe a better way to store user info???
+        setName(user.displayName); //null warning???
+        setEmail(user.email);
         setAuthenticated(true);
       } else {
         router.push("/login");
@@ -46,11 +47,23 @@ export default function Home() {
   if (!authenticated) { 
     return <p>Redirecting to login page...</p>;
   }
+
+  // else if (authenticated && email !== "limjunguan06@gmail.com") {
+  //   return (
+  //   <div>
+  //     <h1>Access Denied</h1>
+  //     <p>You do not have permission to access this page.</p>
+  //     <button onClick={logout}>Log Out</button>
+  //   </div>
+  // );
+  // } 
   return (
     <div>
-      <h1>EDA agent: Backbone</h1>
-      {email && <p>Welcome: {email}</p>}
+      <h1>Website heading</h1>
+      {name && <p>User: {name}</p>}  
+      {email && <p>Email: {email}</p>}
       <button onClick={logout}>Log Out</button>
+      <p><b>Description:</b> This is a scaffold of my personal website. It is just the beginning.</p>
     </div>
   );
 }

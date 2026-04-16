@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+h1 {
+    @apply text-center text-[36px] mt-[30px] mb-[20px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    textAlign: 'center'; text-center
+    fontSize: 36; text-[36px] 
+    marginTop: 60; mt-[60px]
+    marginBottom: 20; mb-[20px] */
+}
+
+p {
+    @apply text-center mt-[20px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    textAlign: 'center'; text-center
+    marginTop: 20; mt-[20px] */
+}
+
+button {
+    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[100px] mx-auto; 
+
+    /* Switching from normal CSS to Tailwind CSS
+     marginTop: 20; mt-[20px]
+     padding: 10; p-[10px]
+     border: '5px'; border-[5px]
+     borderRadius: 20; rounded-[20px]
+     display: block; block 
+     height: 50; h-[50px]
+     width: 100; w-[100px]
+    marginLeft: 'auto'; mx-auto //check mx-auto again
+      */
+}
