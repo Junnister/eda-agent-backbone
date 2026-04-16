@@ -2,24 +2,30 @@
 
 import { auth, provider } from "../../lib/firebase";
 import { signInWithPopup } from "firebase/auth";
+import { useRouter } from "next/navigation";
 import './login.css';
 
 export default function LoginPage() {
 
+  const router = useRouter();
   const loginWithGoogle = async () => {
+    var authenticatedResult = false;
     try {
       const result = await signInWithPopup(auth, provider);
-
       const user = result.user;
       const token = await user.getIdToken();
-
-      console.log("User:", user.email);
-      console.log("Token:", token);
-
-      alert(`Logged in as ${user.email}`);
+      authenticatedResult = true;
+      //console.log("User:", user.email);
+      //console.log("Token:", token);
+      //alert(`Logged in as ${user.email}`);
 
     } catch (error) {
       console.error("Login failed:", error);
+    }
+
+    if (authenticatedResult) {
+      // Redirect to the home page after successful login
+      router.push("/"); // go back to main page
     }
   };
 
