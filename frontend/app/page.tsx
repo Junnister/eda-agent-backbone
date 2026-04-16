@@ -7,8 +7,9 @@ import { auth } from "../lib/firebase";
 import './main.css';
 
 export default function Home() {
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
+  const [name, setName] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
+  //const [email, setEmail] = useState(null); cannot use this because of the warning: "Type 'null' is not assignable to type 'string'.ts(2322)"
   const [authenticated, setAuthenticated] = useState(false);
   const router = useRouter();
 
