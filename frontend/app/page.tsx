@@ -46,7 +46,7 @@ export default function Home() {
 
   //If not authenticated, redirect to login page, otherwise show the main page
   if (!authenticated) { 
-    return <p>Redirecting to login page...</p>;
+    return <p>Redirecting...</p>;
   }
 
   // else if (authenticated && email !== "limjunguan06@gmail.com") {
