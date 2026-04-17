@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 h1 {
-    @apply text-center text-[36px] mt-[30px] mb-[20px]; 
+    @apply text-center text-[36px]
 
     /* Switching from normal CSS to Tailwind CSS
     textAlign: 'center'; text-center
-    fontSize: 36; text-[36px] 
-    marginTop: 60; mt-[60px]
-    marginBottom: 20; mb-[20px] */
+    fontSize: 36; text-[36px] */
 }
 
 p {
