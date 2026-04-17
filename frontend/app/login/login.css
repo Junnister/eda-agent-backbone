@@ -3,25 +3,24 @@
 /* login.css is for styling the login page */
 
 .login-container {
-    @apply p-[40px] border-[5px] rounded-[20px] w-[400px] h-[450px] mx-auto my-[50px] bg-[#f0f0f0]; 
+    @apply p-[40px] pt-[40px] border-[5px] rounded-[20px] max-w-[400px] min-h-[500px] bg-[#f0f0f0] mx-auto; 
 
     /* Switching from normal CSS to Tailwind CSS
     padding: 40px; p-[40px]
     border: '5px'; border-[5px]
     borderRadius: 20; rounded-[20px]
-    width: 400; w-[400px]
-    height: 600; h-[600px]
-    margin: '50px auto'; mx-auto my-[50px]
+    maxWidth: 400; max-w-[400px]
+    minHeight: 600; min-h-[600px]
+    margin: 'auto'; mx-auto 
     backgroundColor: '#f0f0f0'; bg-[#f0f0f0] */
 }
 
 h1 {
-    @apply text-center text-[36px] mb-[20px]; 
+    @apply text-center text-[36px] m-0 mb-6; 
 
     /* Switching from normal CSS to Tailwind CSS
     textAlign: 'center'; text-center
-    fontSize: 36; text-[36px] 
-    marginBottom: 20; mb-[20px] */
+    fontSize: 36; text-[36px]  */
 }
 
 input {
@@ -47,7 +46,7 @@ input {
 }
 
 .login {
-    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[100px]; 
+    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[200px]; 
 
     /* Switching from normal CSS to Tailwind CSS
      marginTop: 20; mt-[20px]

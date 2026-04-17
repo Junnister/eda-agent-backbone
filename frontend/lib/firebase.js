@@ -16,6 +16,21 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
+const actionCodeSettings = {
+  // URL you want to redirect back to. The domain (www.example.com) for this
+  // URL must be in the authorized domains list in the Firebase Console.
+  url: process.env.NEXT_PUBLIC_FIREBASE_EMAIL_LINK_SIGN_IN_URL,
+  // This must be true.
+  handleCodeInApp: true,
+};
+
+export async function sendEmailLink(email) {
+  await sendSignInLinkToEmail(auth, email, actionCodeSettings);
+
+  // store email locally (important!)
+  window.localStorage.setItem("emailForSignIn", email);
+};
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
