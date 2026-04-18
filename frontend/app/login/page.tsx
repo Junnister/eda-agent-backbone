@@ -2,12 +2,12 @@
 
 import { auth, provider } from "../../lib/firebase";
 import { signInWithPopup, sendSignInLinkToEmail } from "firebase/auth";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 import './login.css';
 
-export default function LoginPage() {
+export default function LoginPage() { 
 
   const actionCodeSettings = {
       url: process.env.NEXT_PUBLIC_FIREBASE_EMAIL_LINK_SIGN_IN_URL || "http://localhost:3000", // Fallback to current origin if environment variable is not set
