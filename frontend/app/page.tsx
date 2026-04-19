@@ -34,7 +34,8 @@ export default function Home() {
   const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000') // Relative URL to your API route
+        fetch('https://eda-agent-backbone.onrender.com/')
+        //fetch('http://127.0.0.1:8000') // Relative URL to your API route
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error(
