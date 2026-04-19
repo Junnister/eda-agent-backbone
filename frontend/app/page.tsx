@@ -30,6 +30,16 @@ export default function Home() {
     //Effect = start something
     //Cleanup = stop that thing
   }, [router]);
+
+  const [data, setData] = useState(null);
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000') // Relative URL to your API route
+            .then(response => response.json())
+            .then(data => setData(data))
+            .catch(error => console.error(
+                'Error fetching data:', error));
+    }, []);
   
 //If you use something inside useEffect, list it as dependency like [router] to avoid warning, 
 // but in this case, router is not changing, so it won't cause infinite loop. 
@@ -65,6 +75,16 @@ export default function Home() {
       {email && <p>Email: {email}</p>}
       <button onClick={logout}>Log Out</button>
       <p><b>Description:</b> This is a scaffold of my personal website. It is just the beginning.</p>
+      
+      {/* Need to learn more with ?  */}
+      {data ? (
+                <p style={{ fontSize: '50px' }}>
+                    Hello: {JSON.stringify(data)}
+                </p>
+            ) : (
+                <p>Loading...</p>
+            )}
     </div>
+    
   );
 }
