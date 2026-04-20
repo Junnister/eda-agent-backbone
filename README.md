@@ -14,13 +14,13 @@ This is to help the data members to see the outline of the data before performin
 a. data quality issues (confidential data, missing values, duplicate rows, inconsistent categories, wrong data types)
 b. statistical issues (skewed distributions, extreme outliers, near-zero variance features)
 
-# 3. Chatbot capabilities:
+# 3a. Chatbot capabilities:
 - Summary statistics (tool: df.describe, mean, median, skew, Missing values, desc: said the important variables to resolve) 
 - Correlation analysis (tool: correlation matrix, desc: said the strong correlations)
 - Visualisations (tools: numeric vs numeric, categorical vs categorical, categorical vs numeric, desc: explain if the visualisation helps)
 - Suggestions to clean data (tool: to be determined) (maybe joined with agent)
 
-- Additional chatbot capabilities
+# 3b. Additional chatbot capabilities
 - Class Imbalance
 - Scaling
 - One-hot encoding
