@@ -90,15 +90,16 @@ export default function LoginPage() {
   //ChatGPT claimed: "When you add a <form> tag, the browser changes behavior in a subtle but important way.""
   return (
     <div className="login-container">
-      <h1>Login</h1>
+      <h1 className="login-heading">Login</h1>
       <label><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email"/>
+      <input type="text" id="email" placeholder="Enter Email" name="email"/>
       {/* How to add email link authentication */}
       <div className="button-container">
         <button className="login" onClick={login}>Sign in with email link</button>
         <p>---or---</p>
         <button className="login-With-Google" onClick={loginWithGoogle}>
-          Sign in with Google
+          <img className="google-logo" src="/google-logo.svg"/>
+          <span>Sign in with Google</span>
         </button>
       </div>
       <p>Note: There may be an error with sign-in email link authentication since it may exceed daily quota.</p>

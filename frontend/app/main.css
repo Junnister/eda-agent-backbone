@@ -1,32 +1,135 @@
 @import "tailwindcss";
 
-h1 {
-    @apply text-center text-[36px]
+body {
+    @apply text-[14px];
+}
+
+.heading {
+    @apply h-[50px] w-full bg-gray-200 flex items-center justify-center;
 
     /* Switching from normal CSS to Tailwind CSS
     textAlign: 'center'; text-center
     fontSize: 36; text-[36px] */
 }
 
+.h1-heading {
+    @apply text-center text-[28px] mt-[0px] font-[700];
+
+    /* Switching from normal CSS to Tailwind CSS
+    textAlign: 'center'; text-center
+    fontSize: 20; text-[20px]
+    marginTop: 0; mt-[0px]
+     */
+}
+
+.settings {
+    @apply w-[20px] h-[20px] absolute right-[30px] cursor-pointer; 
+
+    /* Switching from normal CSS to Tailwind CSS
+    width: 20; w-[20px]
+    height: 20; h-[20px]
+    position: absolute; absolute
+    right: 30; right-[30px]
+    cursor: pointer; cursor-pointer
+    */ 
+    /*Find out absolute vs relative position */    
+}
+
+.settings-popup {
+    @apply absolute right-[0px] mt-[10px] p-[10px] border-[1px] rounded-[20px] bg-gray-200;
+
+    /* Switching from normal CSS to Tailwind CSS
+    position: absolute; absolute
+    right: 0; right-[0px]
+    marginTop: 10; mt-[10px]
+    padding: 10; p-[10px]
+    border: '1px'; border-[1px]
+    borderRadius: 20; rounded-[20px]
+    backgroundColor: '#e5e7eb'; bg-white-200
+     */
+}
+
 p {
-    @apply text-center mt-[20px]; 
+    @apply text-center mt-[10px]; 
 
     /* Switching from normal CSS to Tailwind CSS
     textAlign: 'center'; text-center
     marginTop: 20; mt-[20px] */
 }
 
-button {
-    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[100px] mx-auto; 
+.logout {
+    @apply mt-[20px] border-[2px] rounded-[20px] block h-[40px] w-[100px] mx-auto cursor-pointer; 
 
     /* Switching from normal CSS to Tailwind CSS
      marginTop: 20; mt-[20px]
      padding: 10; p-[10px]
-     border: '5px'; border-[5px]
+     border: '2px'; border-[2px]
      borderRadius: 20; rounded-[20px]
      display: block; block 
      height: 50; h-[50px]
      width: 100; w-[100px]
     marginLeft: 'auto'; mx-auto //check mx-auto again
+    cursor: pointer; cursor-pointer
       */
+}
+
+.upload-content {
+    @apply p-[20px] bg-[#f0f0f0] mx-auto max-w-[1000px];
+
+    /* Switching from normal CSS to Tailwind CSS
+    justifyContent: 'center'; justify-center
+    padding: 20; p-[20px]
+    backgroundColor: '#f0f0f0'; bg-[#f0f0f
+    mx-auto; mx-auto
+    
+     */
+}
+
+.upload-content h2 {
+    @apply inline-block float-left text-left text-[24px] font-[600]; 
+}
+
+.upload-content #upload-file {
+    @apply hidden;
+     /* Switching from normal CSS to Tailwind CSS
+    display: 'none'; hidden
+     */
+}
+
+.upload-content #upload-file-label {
+    @apply inline-block ml-[30px] border-[2px] mb-[0px] rounded-[20px] pt-[8px] pb-[8px] p-[10px] h-[40px] max-w-[240px] cursor-pointer; 
+}
+
+#file-upload-result {
+    @apply text-left font-[500] text-[14px] mt-[15px] mb-[15px];
+}
+
+#data-preview-label {
+    @apply text-left font-[500] text-[21px];
+}
+
+.data-preview {
+    @apply overflow-x-auto overflow-y-scroll mt-[20px] mx-auto max-w-[1000px] max-h-[300px];
+}
+
+.data-preview-table {
+    @apply w-full border-collapse;
+
+    /* Switching from normal CSS to Tailwind CSS
+    width: '100%'; w-full
+    borderCollapse: 'collapse'; border-collapse
+    marginTop: 20; mt-[20px]
+     */
+}
+
+.data-preview-table th {
+    @apply border-[1px] border-gray-300 bg-gray-100 px-[15px] py-[5px] text-left;
+}
+
+.data-preview-table tr {
+    @apply border-[1px] border-gray-300 even:bg-white odd:bg-gray-50;
+}
+
+.data-preview-table td {
+    @apply border-[1px] border-gray-300 px-[15px] py-[5px];
 }
