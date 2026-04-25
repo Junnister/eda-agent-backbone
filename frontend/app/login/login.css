@@ -3,7 +3,7 @@
 /* login.css is for styling the login page */
 
 .login-container {
-    @apply p-[40px] pt-[40px] border-[5px] rounded-[20px] max-w-[400px] min-h-[500px] bg-[#f0f0f0] mx-auto; 
+    @apply mt-[20px] p-[40px] pt-[40px] border-[5px] rounded-[20px] max-w-[400px] min-h-[500px] bg-[#f0f0f0] mx-auto; 
 
     /* Switching from normal CSS to Tailwind CSS
     padding: 40px; p-[40px]
@@ -12,10 +12,12 @@
     maxWidth: 400; max-w-[400px]
     minHeight: 600; min-h-[600px]
     margin: 'auto'; mx-auto 
-    backgroundColor: '#f0f0f0'; bg-[#f0f0f0] */
+    backgroundColor: '#f0f0f0'; bg-[#f0f0f0]
+    marginTop: 20; mt-[20px] */
+   
 }
 
-h1 {
+.login-heading {
     @apply text-center text-[36px] m-0 mb-6; 
 
     /* Switching from normal CSS to Tailwind CSS
@@ -23,7 +25,7 @@ h1 {
     fontSize: 36; text-[36px]  */
 }
 
-input {
+#email {
     @apply block border-[2px] w-full p-[10px] mb-[20px]; 
 
     /* Switching from normal CSS to Tailwind CSS
@@ -46,12 +48,12 @@ input {
 }
 
 .login {
-    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[200px]; 
+    @apply mt-[20px] p-[5px] border-[2px] rounded-[25px] block h-[50px] w-[250px]; 
 
     /* Switching from normal CSS to Tailwind CSS
      marginTop: 20; mt-[20px]
      padding: 10; p-[10px]
-     border: '5px'; border-[5px]
+     border: '2px'; border-[2px]
      borderRadius: 20; rounded-[20px]
      display: block; block 
      height: 50; h-[50px]
@@ -66,17 +68,28 @@ p {
     marginTop: 20; mt-[20px] */
 }
 
-.login-With-Google {
-    @apply mt-[20px] p-[10px] border-[5px] rounded-[20px] block h-[50px] w-[200px]; 
+.google-logo {
+    @apply inline-block w-[20px] h-[20px] mr-[10px]; 
 
     /* Switching from normal CSS to Tailwind CSS
-     marginTop: 20; mt-[20px]
-     padding: 10; p-[10px]
-     border: '5px'; border-[5px]
-     borderRadius: 20; rounded-[20px]
-     display: block; block 
-     height: 50; h-[50px]
-     width: 200; w-[200px] */
+    display: 'inline-block'; inline-block
+    width: 20; w-[20px]
+    height: 20; h-[20px]
+    marginRight: 10; mr-[10px] */
+}
+
+.login-With-Google {
+    @apply mt-[20px] p-[5px] border-[2px] rounded-[25px] block h-[50px] w-[250px]; 
+
+    /* Switching from normal CSS to Tailwind CSS
+        marginTop: 20; mt-[20px]
+        padding: 10; p-[10px]
+        border: '2px'; border-[2px]
+        borderRadius: 20; rounded-[20px]
+        display: block; block
+        height: 50; h-[50px]
+        width: 250; w-[250px] */
+     
 }
 
 

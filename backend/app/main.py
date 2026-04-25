@@ -1,9 +1,11 @@
-from fastapi import FastAPI, Header, HTTPException
+from fastapi import FastAPI, File, Header, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from app.auth.authorize import verify_token
 #Get authorisation from Firebase
 from app.auth.firebase import db
 #from firebase.js
+import pandas as pd
+from io import BytesIO
 
 #Get user info from Firestore for checking access
 def check_access(uid: str):
@@ -48,6 +50,16 @@ def protected_route(authorization: str = Header(None)):
         "accessEnabled": user["accessEnabled"]
     }
 
-
-
- 
+@app.post("/upload_csv")
+async def upload_csv(file: UploadFile = File(...)):
+    if file is None:
+        raise HTTPException(status_code=400, detail="No file uploaded")
+    try:
+        file_contents = await file.read()  
+        file_bytes = BytesIO(file_contents) # Convert the file contents to a BytesIO object for storing memory      
+        df = pd.read_csv(file_bytes)
+        # Process the DataFrame as needed
+        # Check to_dict(orient="records")
+        return {"columns": df.columns.tolist(), "head": df.head(10).to_dict(orient="records")}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

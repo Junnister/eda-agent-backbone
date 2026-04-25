@@ -31,14 +31,57 @@ const fetchProtectedData = async (user: any) => {
   }
 };
 
+const uploadFile = async (file: File) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  try {
+    const res = await fetch(webLink + "/upload_csv", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!res.ok) {
+      throw new Error("File upload failed");
+    }
+
+    const data = await res.json();
+    let columns = data.columns ?? [];
+    let head = data.head ?? {};
+    return {"columns": columns, "head": head};
+  } catch (error) {
+    console.error("Error uploading file:", error);
+    return null;
+  }
+  };
+
+
 export default function Home() {
   const [name, setName] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null);
   const [role, setRole] = useState<string | null>(null);
   const [protectedData, setProtectedData] = useState<any>(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [fileName, setFileName] = useState<string | null>(null);
+  const [dataHead, setDataHead] = useState<any>(null);
+
   //const [email, setEmail] = useState(null); cannot use this because of the warning: "Type 'null' is not assignable to type 'string'.ts(2322)"
   const [authenticated, setAuthenticated] = useState(false);
   const router = useRouter();
+
+  const openSettings = () => {
+    setShowPopup(prev => !prev);
+  };
+
+  const handleFileUpload = async (file: File) => {
+    const result = await uploadFile(file);
+    if (result) {
+      setFileName(file.name);
+      setDataHead(result.head);
+    }
+  };
+
+  
+
 
   // Check authentication status on 
   useEffect(() => {
@@ -99,22 +142,70 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Website heading</h1>
-      {name && <p>User: {name}</p>}  
-      {email && <p>Email: {email}</p>}
-      <button onClick={logout}>Log Out</button>
-      <p><b>Description:</b> This is a scaffold of my personal website. It is just the beginning.</p>
+      {/* start of heading */}
+      <div className= "heading">
+        <h1 className="h1-heading">EDA agent: Backbone</h1>
+        <div className="settings" onClick={openSettings}>
+          <img src="/settings.svg" alt="Settings" />
+          {showPopup && (
+            <div className="settings-popup">
+              <p>{name}</p>
+              <p>{email}</p>
+              <button className="logout" onClick={logout}>
+                Log Out
+              </button>
+            </div>
+            )}
+        </div>
+      </div>
+      {/* end of heading*/}
+
+      {/* start of upload section */}
+      <div className="upload-content">
+          <h2>Step 1: Upload data</h2>
+          <label id="upload-file-label" htmlFor="upload-file">Upload file</label>
+          <input type="file" id="upload-file" onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) handleFileUpload(file);
+          }}/>
       
-      {/* Need to learn more with ?  */}
-      {/* {data ? (
-                <p style={{ fontSize: '50px' }}>
-                    Hello: {JSON.stringify(data)}
-                </p>
-            ) : (
-                <p>Loading...</p>
-            )} */}
+        
+        {fileName ? (
+              <p id="file-upload-result">File uploaded: {fileName}</p>
+          ) : (
+              <p id="file-upload-result"></p>
+          )}
+        {dataHead ? (
+              <div>
+                <h3 id="data-preview-label">Data preview (first 10 rows):</h3>
+                <div className="data-preview">
+                <table className="data-preview-table">
+                  <thead>
+                    {/* Learn displaying tables in React */}
+                    <tr>
+                      {Object.keys(dataHead[0]).map((key) => (
+                        <th key={key}>{key}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {dataHead.slice(0, 10).map((row: any, index: number) => (
+                      <tr key={index}>
+                        {Object.values(row).map((value: any, i: number) => (
+                          <td key={i}>{value}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : (
+              <p></p>
+          )}
+        </div>
+      {/* end of upload section */}
     </div>
     
   );
-
 }
