@@ -40,6 +40,7 @@ const uploadFile = async (file: File) => {
       body: formData,
     });
 
+    //Debug this
     if (!res.ok) {
       throw new Error("File upload failed");
     }
@@ -49,6 +50,7 @@ const uploadFile = async (file: File) => {
     let head = data.head ?? {};
     return {"columns": columns, "head": head};
   } catch (error) {
+    //Debug this
     console.error("Error uploading file:", error);
     return null;
   }
@@ -144,7 +146,7 @@ export default function Home() {
     <div>
       {/* start of heading */}
       <div className= "heading">
-        <h1 className="h1-heading">EDA agent: Backbone</h1>
+        <h1 className="h1-heading">Backbone</h1>
         <div className="settings" onClick={openSettings}>
           <img src="/settings.svg" alt="Settings" />
           {showPopup && (
