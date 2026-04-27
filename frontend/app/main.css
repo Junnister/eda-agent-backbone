@@ -13,7 +13,7 @@ body {
 }
 
 .h1-heading {
-    @apply text-center text-[28px] mt-[0px] font-[700];
+    @apply text-center text-[24px] mt-[0px] font-[700];
 
     /* Switching from normal CSS to Tailwind CSS
     textAlign: 'center'; text-center
@@ -86,7 +86,7 @@ p {
 }
 
 .upload-content h2 {
-    @apply inline-block float-left text-left text-[24px] font-[600]; 
+    @apply inline-block float-left text-left text-[19px] font-[600] mt-[5px] ; 
 }
 
 .upload-content #upload-file {
@@ -101,7 +101,7 @@ p {
 }
 
 #file-upload-result {
-    @apply text-left font-[500] text-[14px] mt-[15px] mb-[15px];
+    @apply text-left font-[500] text-[14px] mt-[15px] mb-[15px] truncate w-full max-w-[1000px] ;
 }
 
 #data-preview-label {
